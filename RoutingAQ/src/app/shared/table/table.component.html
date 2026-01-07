@@ -8,7 +8,7 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let row of data">
+    <tr *ngFor="let row of data" (click)="onRowClick(row)">
      <td *ngFor="let col of columns">
   {{ getValue(row, col) }}
 </td>

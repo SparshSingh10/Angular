@@ -12,4 +12,12 @@ data = [
     { id: 2, client: 'Luigi Verdi', amount: 2000 },
     { id: 3, client: 'Anna Bianchi', amount: 1500 }
   ];
+
+  selectedRow: any;
+
+onRowSelected(row: any) {
+  console.log('PARENT: Row received', row);
+  this.selectedRow = row;
+}
+
 }

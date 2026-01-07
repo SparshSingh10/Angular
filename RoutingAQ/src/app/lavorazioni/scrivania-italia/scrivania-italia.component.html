@@ -4,9 +4,18 @@
   <p>Only admin users can access this page.</p>
   <h2>Scrivania Italia</h2>
 
+  <div *ngIf="selectedRow">
+  <strong>Selected Row:</strong>
+  {{ selectedRow | json }}
+  <!-- selected stirng is [object] and it will be displayed as string("[object]"]") so used josn to jet in json, Converts object → readable JSON text -->
+   <!-- could have used selectedRow.name or selectedrow.id etc -->
+    <!-- debugging, learning,seeing full object quickly -->
+</div>
 <app-table
   [columns]="columns"
-  [data]="data">
+  [data]="data"
+  (rowClicked)="onRowSelected($event)">
+  <!-- $event is a temporary variable created by Angular that holds the data sent by the child. -->
 </app-table>
 
 </div>

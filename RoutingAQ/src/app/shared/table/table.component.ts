@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input,Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-table',
@@ -28,4 +28,10 @@ export class TableComponent {
 // Why does Angular not wait for parent before rendering template?
 // Answer:
 // Because Angular creates and renders components independently, then binds inputs later.
+
+@Output() rowClicked = new EventEmitter<any>();
+ onRowClick(row: any) {
+    console.log('CHILD: Row clicked', row);
+    this.rowClicked.emit(row);
+  }
 }
