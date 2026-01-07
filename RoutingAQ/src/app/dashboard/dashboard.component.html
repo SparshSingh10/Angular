@@ -1,0 +1,7 @@
+<div class="dashboard-container">
+  <h1>Dashboard</h1>
+  <div class="welcome-message" *ngIf="user">
+    <h2>Welcome, {{ user.name }}!</h2>
+    <p>Role: <span class="role-badge">{{ user.role | titlecase }}</span></p>
+  </div>
+</div>

@@ -1,0 +1,122 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007bff;
+  padding: 1rem;
+  color: white;
+}
+
+.navbar-brand h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+  margin-left: 2rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 200px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-name {
+  font-weight: bold;
+}
+
+.user-role {
+  background: rgba(255,255,255,0.2);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.user-role.admin {
+  background: #28a745;
+}
+
+.toggle-btn, .logout-btn {
+  background: #ffc107;
+  color: #000;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.toggle-btn:hover {
+  background: #e0a800;
+}
+
+.logout-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.logout-btn:hover {
+  background: #c82333;
+}
+
+.login-link {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  background: #28a745;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.login-link:hover {
+  background: #218838;
+}

@@ -1,0 +1,38 @@
+<header>
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <h1>GESTIONE Anticipi Fatture</h1>
+    </div>
+    <ul class="navbar-nav" *ngIf="isLoggedIn()">
+      <li class="nav-item">
+        <a routerLink="/dashboard" class="nav-link">Dashboard</a>
+      </li>
+      <li class="nav-item dropdown" *ngIf="user?.role === 'admin'">
+        <a class="nav-link dropdown-toggle">Lavorazioni</a>
+        <ul class="dropdown-menu">
+          <li><a routerLink="/lavorazioni/scrivania-italia" class="dropdown-item">Scrivania Italia</a></li>
+          <li><a routerLink="/lavorazioni/scrivania-estero" class="dropdown-item">Scrivania Estero</a></li>
+          <li><a routerLink="/lavorazioni/incassi" class="dropdown-item">Incassi</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown" *ngIf="user?.role === 'admin'">
+        <a class="nav-link dropdown-toggle">Amministrazione</a>
+        <ul class="dropdown-menu">
+          <li><a routerLink="/amministrazione/utenti" class="dropdown-item">Gestione Utenti</a></li>
+          <li><a routerLink="/amministrazione/configurazioni" class="dropdown-item">Configurazioni</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="user-info">
+      <div *ngIf="isLoggedIn(); else loginSection">
+        <span class="user-name">{{ user?.name }}</span>
+        <span class="user-role" [class.admin]="user?.role === 'admin'">{{ user?.role | titlecase }}</span>
+        <button (click)="toggleRole()" class="toggle-btn">Toggle Role</button>
+        <button (click)="logout()" class="logout-btn">Logout</button>
+      </div>
+      <ng-template #loginSection>
+        <a routerLink="/login" class="login-link">Login</a>
+      </ng-template>
+    </div>
+  </nav>
+</header>

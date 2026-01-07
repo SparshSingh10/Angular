@@ -1,0 +1,33 @@
+<div class="login-container">
+  <h2>Login Form</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+
+    <div class="form-group">
+      <input type="email" placeholder="Enter email" formControlName="email">
+      <span *ngIf="email?.touched && email?.hasError('required')" class="error">
+        Email is required
+      </span>
+      <span *ngIf="email?.touched && email?.hasError('email')" class="error">
+        Enter a valid email (example: abc@gmail.com)
+      </span>
+    </div>
+
+    <div class="form-group">
+      <input type="password" placeholder="Enter password" formControlName="password">
+      <span *ngIf="password?.hasError('required') && password?.touched" class="error">Password is Required</span>
+    </div>
+
+    <button type="submit" class="btn-primary">Login</button>
+  </form>
+
+  <p class="message" [ngClass]="{'success': isRegistered, 'error': !isRegistered}">{{ message }}</p>
+
+  <button *ngIf="!isRegistered" type="button" (click)="registerUser()" class="btn-secondary">
+    Register
+  </button>
+
+  <div class="register-link">
+    <p>Don't have an account? <a routerLink="/register">Register here</a></p>
+  </div>
+</div>
