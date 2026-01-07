@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TableComponent } from './shared/table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    DashboardComponent
+    DashboardComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
