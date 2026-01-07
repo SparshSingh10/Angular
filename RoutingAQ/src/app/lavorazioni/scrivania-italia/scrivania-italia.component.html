@@ -2,4 +2,20 @@
   <h2>Scrivania Italia</h2>
   <p>This component is loaded via lazy loading from the Lavorazioni module.</p>
   <p>Only admin users can access this page.</p>
+  
+  <!-- Selected Row Display -->
+  <div *ngIf="selectedRow" class="selected-row">
+    <h3>Selected Row Data:</h3>
+    <p><strong>ID:</strong> {{ selectedRow.id }}</p>
+    <p><strong>Cliente:</strong> {{ selectedRow.cliente }}</p>
+    <p><strong>Importo:</strong> {{ selectedRow.importo }}</p>
+    <p><strong>Stato:</strong> {{ selectedRow.stato }}</p>
+  </div>
+  
+  <!-- Reusable Table Component -->
+  <app-table 
+    [columns]="columns" 
+    [data]="data" 
+    (rowClick)="onRowSelected($event)">
+  </app-table>
 </div>

@@ -5,3 +5,11 @@
   border-radius: 8px;
   border-left: 4px solid #007bff;
 }
+
+.selected-row {
+  background: #e7f3ff;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 5px;
+  border: 1px solid #b3d9ff;
+}
