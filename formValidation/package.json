@@ -1,5 +1,5 @@
 {
-  "name": "form",
+  "name": "form-validation",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
