@@ -5,13 +5,15 @@ import { LavorazioniRoutingModule } from './lavorazioni-routing.module';
 import { ScrivaniaItaliaComponent } from './scrivania-italia/scrivania-italia.component';
 import { ScrivaniaEsteroComponent } from './scrivania-estero/scrivania-estero.component';
 import { IncassiComponent } from './incassi/incassi.component';
+import { TableComponent } from '../shared/table/table.component';
 
 
 @NgModule({
   declarations: [
     ScrivaniaItaliaComponent,
     ScrivaniaEsteroComponent,
-    IncassiComponent
+    IncassiComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,
