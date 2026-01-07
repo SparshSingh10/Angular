@@ -1,0 +1,12 @@
+<!-- <form [action]="" method="post"> -->
+  <input type="text" placeholder="Enter Name" [formControl]="name">
+  <br><br>
+
+  <input type="password" placeholder="Enter Password" [formControl]="password">
+  <br><br>
+
+  <button type="button" (click)="meraFun()">Click</button>
+  <p>Name: {{ name.value }}</p>
+  <p>Password: {{ password.value }}</p>
+  <button type="button" (click)="setValues()" >Set Values</button>
+<!-- </form> -->

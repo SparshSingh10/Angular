@@ -1,0 +1,59 @@
+<h1>Form Grouping in Reactive Forms</h1>
+
+<form [formGroup]="profileForm" (ngSubmit)="submitData()">
+
+  <!-- NAME FIELD -->
+  <input
+    type="text"
+    placeholder="Enter your name"
+    formControlName="name">
+
+  <!-- Name required error -->
+  <span *ngIf="name?.hasError('required') && (name?.dirty || name?.touched)">
+    Name is required
+  </span>
+
+  <!-- Name min length error -->
+  <span *ngIf="name?.hasError('minlength') && (name?.dirty || name?.touched)">
+    Name must be at least 3 characters
+  </span>
+
+  <!-- PASSWORD FIELD -->
+  <input
+    type="password"
+    placeholder="Enter your password"
+    formControlName="password">
+
+  <span *ngIf="password?.hasError('required') && password?.touched">
+    <!-- “Show this message ONLY IF password is empty AND the user has touched the password field.” -->
+     <!-- if (passwordIsEmpty && userTouchedPasswordField) {
+  showErrorMessage();
+} -->
+
+    Password is required
+  </span>
+
+  <span *ngIf="password?.hasError('minlength') && password?.touched">
+    Password must be at least 6 characters
+  </span>
+
+  <!-- EMAIL FIELD -->
+  <input
+    type="email"
+    placeholder="Enter your Email"
+    formControlName="email">
+
+  <span *ngIf="email?.hasError('required') && email?.touched">
+    Email is required
+  </span>
+
+  <span *ngIf="email?.hasError('email') && email?.touched">
+    Enter a valid email
+  </span>
+
+  <!-- SUBMIT BUTTON (disabled if form invalid) -->
+  <button type="submit" [disabled]="profileForm.invalid">
+    Submit
+  </button>
+
+</form>
