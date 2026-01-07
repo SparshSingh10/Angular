@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'formValidation'`, () => {
+  it(`should have as title 'formValidationJson'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('formValidation');
+    expect(app.title).toEqual('formValidationJson');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('formValidation app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('formValidationJson app is running!');
   });
 });
