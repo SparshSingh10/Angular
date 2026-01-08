@@ -1,7 +1,7 @@
 <table border="1" cellpadding="8">
   <thead>
     <tr>
-      <th *ngFor="let col of columns">
+      <th *ngFor="let col of columns" (click)="sortBy(col)" style="cursor: pointer;">
         {{ col }}
       </th>
     </tr>

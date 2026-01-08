@@ -34,4 +34,31 @@ export class TableComponent {
     console.log('CHILD: Row clicked', row);
     this.rowClicked.emit(row);
   }
+
+  sortColumn: string | null = null;
+  sortDirection: 'asc' | 'desc' = 'asc';
+sortBy(column: string) {
+
+  if (this.sortColumn === column) {
+    // same column clicked → toggle direction
+    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+  } else {
+    // new column clicked
+    this.sortColumn = column;
+    this.sortDirection = 'asc';
+  }
+
+  this.data.sort((a: any, b: any) => {
+    if (a[column] < b[column]) {
+      return this.sortDirection === 'asc' ? -1 : 1;
+    }
+    if (a[column] > b[column]) {
+      return this.sortDirection === 'asc' ? 1 : -1;
+    }
+    return 0;
+  });
+
+  console.log(`TABLE: Sorted by ${column} (${this.sortDirection})`);
+}
+
 }
