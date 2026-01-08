@@ -1,9 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-
-export interface TableColumn {
-  key: string;
-  label: string;
-}
+import { Component, Input,Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-table',
@@ -11,44 +6,32 @@ export interface TableColumn {
   styleUrls: ['./table.component.css']
 })
 export class TableComponent {
-  @Input() columns: TableColumn[] = [];
-  @Input() data: any[] = [];
-  @Output() rowClick = new EventEmitter<any>();
+// columns = ['id', 'name', 'country'];
+// data = [
+//     { id: 1, name: 'Mario', country: 'Italy' },
+//     { id: 2, name: 'John', country: 'USA' },
+//     { id: 3, name: 'Ana', country: 'Spain' }
+//   ];
+  getValue(row: any, col: string) {
+  return row[col];
+}
 
-  sortColumn: string = '';
-  sortDirection: 'asc' | 'desc' = 'asc';
+@Input() columns: string[] = [];
+// “Dear parent, you will give me columns.”
+@Input() data: any[] = [];
+// I used any[] because the table is generic and should support multiple data structures. 
+// your row is an object, not a string.
+// 1️⃣ Angular renders template before inputs arrive
+// 2️⃣ *ngFor cannot loop over undefined
+// 3️⃣ Empty array is safe
+// 4️⃣ any[] keeps table reusable
+// Why does Angular not wait for parent before rendering template?
+// Answer:
+// Because Angular creates and renders components independently, then binds inputs later.
 
-  onRowClick(row: any): void {
-    console.log('TableComponent: Row clicked', row);
-    this.rowClick.emit(row);
-  }
-
-  onSort(columnKey: string): void {
-    if (this.sortColumn === columnKey) {
-      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-    } else {
-      this.sortColumn = columnKey;
-      this.sortDirection = 'asc';
-    }
-
-    this.data.sort((a, b) => {
-      const aValue = a[columnKey];
-      const bValue = b[columnKey];
-      
-      if (aValue < bValue) {
-        return this.sortDirection === 'asc' ? -1 : 1;
-      }
-      if (aValue > bValue) {
-        return this.sortDirection === 'asc' ? 1 : -1;
-      }
-      return 0;
-    });
-
-    console.log('TableComponent: Sorted by', columnKey, this.sortDirection);
-  }
-
-  getSortIcon(columnKey: string): string {
-    if (this.sortColumn !== columnKey) return '↕️';
-    return this.sortDirection === 'asc' ? '↑' : '↓';
+@Output() rowClicked = new EventEmitter<any>();
+ onRowClick(row: any) {
+    console.log('CHILD: Row clicked', row);
+    this.rowClicked.emit(row);
   }
 }

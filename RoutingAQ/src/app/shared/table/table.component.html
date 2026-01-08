@@ -1,16 +1,19 @@
-<table class="data-table">
+<table border="1" cellpadding="8">
   <thead>
     <tr>
-      <th *ngFor="let column of columns" (click)="onSort(column.key)" class="sortable">
-        {{ column.label }} {{ getSortIcon(column.key) }}
+      <th *ngFor="let col of columns">
+        {{ col }}
       </th>
     </tr>
   </thead>
+
   <tbody>
-    <tr *ngFor="let row of data" (click)="onRowClick(row)" class="clickable-row">
-      <td *ngFor="let column of columns">
-        {{ row[column.key] }}
-      </td>
+    <tr *ngFor="let row of data" (click)="onRowClick(row)">
+     <td *ngFor="let col of columns">
+  {{ getValue(row, col) }}
+</td>
+
+
     </tr>
   </tbody>
 </table>
